@@ -1,0 +1,16 @@
+function fetchCalorieCalculator(gender, age, weight, height, activityLevel) {
+  const BASE_URL = 'https://api.caloriecalculator.com/';
+  const endpoint = `calculate?gender=${gender}&age=${age}&weight=${weight}&height=${height}&activity_level=${activityLevel}`;
+  const url = `${BASE_URL}${endpoint}`;
+
+  return fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      // do any necessary processing with the data here
+      return data;
+    })
+    .catch(error => {
+      console.error('Error fetching calorie calculator:', error);
+      throw error;
+    });
+}
